@@ -288,12 +288,13 @@ $('#all-articles-list').on('click', 'i', function(){
 $('#all-articles-list').on('click', '.delete-button', async function(){
   // console.log($(this).parent().attr('id'))
   let id = $(this).parent().attr('id');
-  let token = localStorage.getItem('token')
- 
+  let user = localStorage.getItem('token')
+  console.log(id)
+  console.log(user)
   let newStory = await new StoryList();
-  newStory.deleteStory(id, token)
+  newStory.deleteStory(id, user)
 
-  // $(this).parent().remove()
+  $(this).parent().remove()
 
 })
 

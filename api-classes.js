@@ -55,8 +55,8 @@ class StoryList {
   //delete story function it wil send a delete request to API
   async deleteStory(storyId, token){
     
-    const response = await axios.delete(`https://hack-or-snooze-v3.herokuapp.com/stories/${storyId}`, {token})
-    console.log(response)
+    let res = await axios.delete(`${BASE_URL}/stories/${storyId}?token=${token}`)
+    console.log(res)
   }
 }
 
