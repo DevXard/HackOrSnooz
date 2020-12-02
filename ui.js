@@ -273,7 +273,7 @@ let arrOfFavorites = JSON.parse(localStorage.getItem('favorites'))
 $('#all-articles-list').on('click', 'i', function(){
   
   let id = $(this).parent().attr('id')
-  console.log(id)
+  // console.log(id)
   if(!arrOfFavorites.includes(id)){
     $(this).toggleClass('star')
     arrOfFavorites.push(id)
@@ -290,12 +290,23 @@ $('#all-articles-list').on('click', '.delete-button', async function(){
   // console.log($(this).parent().attr('id'))
   let id = $(this).parent().attr('id');
   let user = localStorage.getItem('token')
-  console.log(id)
-  console.log(user)
+  // console.log(id)
+  // console.log(user)
   let newStory = await new StoryList();
-  newStory.deleteStory(id, user)
+  
+  let del = await newStory.deleteStory(id, user)
 
-  $(this).parent().remove()
+  console.log(del)
+  if(del){
+    return
+  }else{
+    $(this).parent().remove()
+  }
+  
+ 
+  
+  
+  
 
 })
 

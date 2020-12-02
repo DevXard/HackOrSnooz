@@ -54,9 +54,15 @@ class StoryList {
 
   //delete story function it wil send a delete request to API
   async deleteStory(storyId, token){
+    try{
+      let res = await axios.delete(`${BASE_URL}/stories/${storyId}?token=${token}`)
+      console.log(res)
+    } catch{
+      alert("You can only delete your posts")
+      return true
+    }
+   
     
-    let res = await axios.delete(`${BASE_URL}/stories/${storyId}?token=${token}`)
-    console.log(res)
   }
 }
 
