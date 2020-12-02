@@ -105,7 +105,7 @@ $(async function() {
     //  this is designed to run once, on page load
     currentUser = await User.getLoggedInUser(token, username);
     await generateStories();
-
+    localStorage.setItem('favorites', JSON.stringify([]))
     if (currentUser) {
       showNavForLoggedInUser();
     }
@@ -225,6 +225,7 @@ $(async function() {
     if (currentUser) {
       localStorage.setItem("token", currentUser.loginToken);
       localStorage.setItem("username", currentUser.username);
+      
     }
   }
 });
