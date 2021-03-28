@@ -303,10 +303,5 @@ $('#all-articles-list').on('click', '.delete-button', async function(){
     $(this).parent().remove()
   }
   
- 
-  
-  
-  
-
 })
 
